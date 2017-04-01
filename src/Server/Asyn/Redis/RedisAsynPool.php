@@ -411,7 +411,7 @@ class RedisAsynPool extends AsynPool
         }
         if ($this->config->has('redis.' . $this->active . '.password')) {//存在验证
             if ($this->redis_client->auth($this->config['redis'][$this->active]['password']) == false) {
-                $this->redis_client = null;
+                $this->redis_client = null;//TODO 是不是应该和下面一行换个位置 嘻嘻，哈哈
                 throw new SwooleException($this->redis_client->getLastError());
             }
         }
